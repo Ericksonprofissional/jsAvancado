@@ -29,5 +29,3 @@ document.querySelector(".form").addEventListener('submit', function(event){
     campos[4].value = 0;
     campos[0].focus();
 })
-
-//https://cursos.alura.com.br/course/javascript-es6-orientacao-a-objetos-parte-1/task/16497

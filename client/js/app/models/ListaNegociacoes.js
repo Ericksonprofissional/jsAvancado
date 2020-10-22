@@ -1,15 +1,21 @@
 class ListaNegociacoes{
-    constructor(){
+    constructor(contexto, armadilha){
         this._negociacoes = [];
+        this._armadilha = armadilha;
+        this._contexto = contexto;
     }
 
     adiciona(negociacoes){
-        this._negociacoes.push(negociacoes)
+        this._negociacoes.push(negociacoes);
+        Reflect.apply(this._armadilha, this._contexto, [this]);
     }
 
     get negociacoes() {
         return [].concat(this._negociacoes);
     }
-}
 
-//https://cursos.alura.com.br/course/javascript-es6-orientacao-a-objetos-parte-1/task/23135//
+    esvazia(){
+        this._negociacoes = [];
+        Reflect.apply(this._armadilha, this._contexto, [this]);
+    }
+}
